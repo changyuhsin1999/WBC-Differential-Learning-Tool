@@ -1,0 +1,10 @@
+pandas
+torch
+torchvision
+tqdm
+matplotlib
+numpy
+cv2
+keras
+streamlit
+seaborn
