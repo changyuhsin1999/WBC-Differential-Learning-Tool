@@ -9,5 +9,5 @@ Free Data - Raabin Health Database (https://raabindata.com/free-data/#acute-lymp
 
 As I went through the dataset, I’ve noticed some of the pictures contain cells from different classes in the same picture, but they’ve only labeled the most centered cell. Therefore, I manually relabel them using Roboflow, which creates a useful dataset for the YOLOv5 model.
 
-##Model
+## Model
 In this computer vision module, I used 3 different models to experiment with the performance of classifying different white blood cells, including the classic machine learning SVC model, neural network Resnet 34 and YOLOv5. Below is a brief comparison of each of the models with different evaluation methods.
