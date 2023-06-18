@@ -7,7 +7,7 @@ The reason why we would like to classify those cells is because every class shou
 The dataset that I use for this module is from a free public resource from Raabin-WBC data
 Free Data - Raabin Health Database (https://raabindata.com/free-data/#acute-lymphoblastic-leukemia).
 
-As I went through the dataset, I’ve noticed some of the pictures contain cells from different classes in the same picture, but they’ve only labeled the most centered cell. Therefore, I manually relabel them using Roboflow so that all of the main cells were labelled. The re-labelled dataset became a useful training set for the YOLOv5 model.
+As I went through the dataset, I’ve noticed some of the pictures contain cells from different classes in the same picture, but they’ve only labeled the most centered cell. Therefore, I manually relabel them using [Roboflow](https://roboflow.com/) so that all of the main cells were labelled. The re-labelled dataset became a useful training set for the YOLOv5 model.
 
 ![Screenshot](https://github.com/changyuhsin1999/WBC-Differential-Learning-Tool/blob/main/Image/Screen%20Shot%202023-06-18%20at%201.57.33%20AM.png)
 
