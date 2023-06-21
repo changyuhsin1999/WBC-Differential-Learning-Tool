@@ -15,3 +15,9 @@ As I went through the dataset, I’ve noticed some of the pictures contain cells
 
 ## Model
 In this computer vision module, I used 3 different models to experiment with the performance of classifying different white blood cells, including the classic machine learning SVC model, neural network Resnet 34 and YOLOv5. Below is a brief comparison of each of the models with different evaluation methods.
+
+| Model         | Accuracy      |
+| ------------- |:-------------:|
+| Resnet34      | right-aligned |
+| SVM           | 10.9 %        |
+
