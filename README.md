@@ -18,6 +18,6 @@ In this computer vision module, I used 3 different models to experiment with the
 
 | Model         | Accuracy      |
 | ------------- |:-------------:|
-| Resnet34      | right-aligned |
+| Resnet34      | 97.1 %        |
 | SVM           | 10.9 %        |
 
