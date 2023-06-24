@@ -44,7 +44,7 @@ st.write('### Detected Image')
 
 # Convert to JPEG Buffer.
 buffered = io.BytesIO()
-image.save(buffered, quality=90, format='JPEG')
+image.save(buffered, quality=150, format='JPEG')
 
 # Base 64 encode.
 img_str = base64.b64encode(buffered.getvalue())
@@ -70,7 +70,7 @@ image = Image.open(BytesIO(r.content))
 
 # Convert to JPEG Buffer.
 buffered = io.BytesIO()
-image.save(buffered, quality=90, format='JPEG')
+image.save(buffered, quality=150, format='JPEG')
 
 # Display image.
 st.image(image,
