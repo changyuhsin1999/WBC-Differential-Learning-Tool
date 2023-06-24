@@ -27,3 +27,6 @@ mAP | Precision | Recall
 --- | --- | ---
 97.4 % | 95.4 % | 95.7 %
 
+##Discussion
+Using the Resnet34 model, I observed that the model was particularly struggle with classifying lymphocytes with recall of 0.882.
+
