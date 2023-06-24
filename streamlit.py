@@ -27,7 +27,7 @@ st.sidebar.write('[Find additional images on Roboflow.](https://universe.roboflo
 ##########
 
 ## Title.
-st.write('# Blood Cell Count Object Detection')
+st.write('# White Blood Cell Learning Tool')
 
 ## Pull in default image or user-selected image.
 if uploaded_file is None:
@@ -40,7 +40,7 @@ else:
     image = Image.open(uploaded_file)
 
 ## Subtitle.
-st.write('### Inferenced Image')
+st.write('### Detected Image')
 
 # Convert to JPEG Buffer.
 buffered = io.BytesIO()
@@ -49,3 +49,46 @@ image.save(buffered, quality=90, format='JPEG')
 # Base 64 encode.
 img_str = base64.b64encode(buffered.getvalue())
 img_str = img_str.decode('ascii')
+
+## Construct the URL to retrieve image.
+upload_url = ''.join([
+    'https://detect.roboflow.com/wbc-classification-ih8we/1',
+    '?api_key=api_key',
+    '&format=image',
+    f'&overlap= 30',
+    f'&confidence= 40',
+    '&stroke=2',
+    '&labels=True'
+])
+## POST to the API.
+r = requests.post(upload_url,
+                  data=img_str,
+                  headers={
+    'Content-Type': 'application/x-www-form-urlencoded'})
+
+image = Image.open(BytesIO(r.content))
+
+# Convert to JPEG Buffer.
+buffered = io.BytesIO()
+image.save(buffered, quality=90, format='JPEG')
+
+# Display image.
+st.image(image,
+         use_column_width=True)
+
+## Construct the URL to retrieve JSON.
+upload_url = ''.join([
+    'https://infer.roboflow.com/wbc-classification-ih8we/1',
+    '?api_key=api_key'
+])
+
+## POST to the API.
+r = requests.post(upload_url,
+                  data=img_str,
+                  headers={
+    'Content-Type': 'application/x-www-form-urlencoded'
+})
+
+## Save the JSON.
+output_dict = r.json()
+
