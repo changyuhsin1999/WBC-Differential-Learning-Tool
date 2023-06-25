@@ -153,9 +153,8 @@ def train_model(model, criterion, optimizer, dataloaders, device, num_epochs=50)
             epoch_acc = running_corrects.double() / dataset_sizes[phase]
             acc_over_time.append(epoch_acc)
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
-    
     return loss_over_time, acc_over_time
-
+    
 def test_model(model,test_loader,device):
     # Turn autograd off
     with torch.no_grad():
@@ -196,3 +195,86 @@ def test_model(model,test_loader,device):
             recall_vals.append(recall)
     
     return test_acc,recall_vals
+
+
+def train_SVC_model(model, input_size, criterion, optimizer, dataloaders, batch_size, device="cpu", num_epochs=1):
+    """
+    Train the model using transfer learning
+    Args:
+        model (torchvision.models): model to train
+        input_size (int): input size of the model
+        criterion (torch.nn.modules.loss): loss function
+        optimizer (torch.optim): optimizer
+        dataloaders (dict): dictionary of dataloaders for training and validation sets
+        device (torch.device): device to train on
+        num_epochs (int): number of epochs to train for
+    Returns:
+        model (torchvision.models): trained model
+    """
+    ## Load the model to GPU if available
+    model = model.to(device)
+
+    ## Train the model
+    for epoch in range(num_epochs):
+        avg_loss_epoch = 0
+        batch_loss = 0
+        total_batches = 0
+
+        for images, labels in dataloaders["train"]:
+            images = images.to(device)
+            labels = labels.to(device)
+            images = images.reshape(-1, input_size)
+            optimizer.zero_grad()
+            
+            ## Forward pass        
+            outputs = model(images)           
+            loss_svm = criterion(outputs, labels, batch_size)    
+            
+            ## Backward and optimize
+            loss_svm.backward()
+            optimizer.step()    
+            total_batches += 1     
+            batch_loss += loss_svm.item()
+
+        ## Print loss every few iterations
+        avg_loss_epoch = batch_loss/total_batches
+        print ('Epoch [{}/{}], Averge Loss:for epoch {}: {:.4f}]'.format(epoch+1, num_epochs, epoch+1, avg_loss_epoch))
+    return model
+
+
+def test_SVC_model(model, test_dataloader, device, input_size):
+    """
+    Test the trained model performance on test dataset
+    Args:
+        model (torchvision.models): model to train
+        test_dataloader (torch.utils.data.DataLoader): test dataloader
+    Returns:
+        model (torchvision.models): trained model
+    """
+    ## Load the model to GPU if available
+    model = model.to(device)
+
+    ## Set model to evaluate mode
+    model.eval()
+
+    correct = 0.
+    total = 0.
+
+    ## Iterate through test dataset
+    for images, labels in test_dataloader:
+        images = images.to(device)
+        labels = labels.to(device)
+        ## Reshape images
+        images = images.reshape(-1, input_size)
+        
+        ## Forward pass
+        outputs = model(images) 
+        
+        ## Get predictions
+        predicted = torch.argmax(outputs, axis=1)
+
+        ## Calculate accuracy
+        total += labels.size(0) 
+        correct += (predicted == labels).sum()    
+
+    print('Accuracy of the SVM model on the val images: %f %%' % (100 * (correct.float() / total)))
