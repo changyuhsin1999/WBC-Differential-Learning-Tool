@@ -28,5 +28,13 @@ mAP | Precision | Recall
 97.4 % | 95.4 % | 95.7 %
 
 ## Discussion
-Using the Resnet34 model, I observed that the model was particularly struggle with classifying lymphocytes with recall of 0.882.
+Using the Resnet34 model, I observed that the model was particularly struggle with classifying lymphocytes with recall of 0.882, which correlate with human eye training since lymphocytes and monocytes are the 2 main classes that we commonly misclassify.
+
+## How to get started
+### Prepare your environment
+
+```
+conda create --name environ python=3.7.15
+conda activate environ
+```
 
