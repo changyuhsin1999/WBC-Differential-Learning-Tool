@@ -34,7 +34,13 @@ Using the Resnet34 model, I observed that the model was particularly struggle wi
 ### Prepare your environment
 
 ```
-conda create --name environ python=3.7.15
-conda activate environ
+conda create --name envir python=3.7.15
+conda activate envir
 ```
+### Install requirement.txt
 
+```
+pip install -r requirements.txt
+```
+### Train the model
+Run the resnet.py and SVC.py python script to train and evaluate your model
