@@ -63,7 +63,7 @@ cost_path = train_model(net, criterion, optimizer, dataloaders, device, num_epoc
 
 # Calculate the test set accuracy and recall for each class
 acc,recall_vals = test_model(net,test_loader,device)
-print('Test set accuracy is {:.3f}'.format(acc))
+print('The test set accuracy is {:.3f}'.format(acc))
 for i in range(7):
     print('For class {}, recall is {}'.format(class_names[i],recall_vals[i]))
 
