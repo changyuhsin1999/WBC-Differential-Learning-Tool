@@ -280,4 +280,4 @@ def test_SVC_model(model, test_dataloader, device, input_size):
         total += labels.size(0) 
         correct += (predicted == labels).sum()    
 
-    print('Accuracy of the SVM model on the val images: %f %%' % (100 * (correct.float() / total)))
+    print('Accuracy of the SVM model on the test images: %f %%' % (100 * (correct.float() / total)))
