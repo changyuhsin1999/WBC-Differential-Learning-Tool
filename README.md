@@ -67,4 +67,7 @@ replace api_key = [Your API key] in the streamlit.py file
 streamlit run streamlit.py
 ```
 
-
+## Reference
+Previous research: [Raabin_health_database](https://www.nimaadmed.com/raabin_health_database/)
+Streamlit application framework/tutorial: [Streamlit_blog](https://blog.streamlit.io/how-to-use-roboflow-and-streamlit-to-visualize-object-detection-output/)
+Yolov5 Transfer Learning repo: [utralytics](https://github.com/ultralytics/yolov5)
