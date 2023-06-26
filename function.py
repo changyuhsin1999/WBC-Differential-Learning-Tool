@@ -33,7 +33,7 @@ def create_datasets(data_file, train_percentage, val_percentage):
     """
     Create datasets for training, validation, and test
 
-    Args:
+    Inputs:
         data_file (str): path to data directory
         train_percentage (float): percentage of data to use for training
         val_percentage (float): percentage of data to use for validation
@@ -67,7 +67,7 @@ def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num
     """
     Create dataloaders for training and validation and testing sets
 
-    Args:
+    Inputs:
         train_dataset (torchvision.datasets.ImageFolder): training dataset
         val_dataset (torchvision.datasets.ImageFolder): validation dataset
         test_dataset (torchvision.datasets.ImageFolder): test dataset
@@ -96,6 +96,9 @@ def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size, num
     return dataloaders, dataset_sizes
 
 def train_model(model, criterion, optimizer, dataloaders, device, num_epochs=50):
+    """
+    Train the Resnet34 model
+    """
     loss_over_time = [] # to track the loss as the network trains
     acc_over_time = []
 
@@ -199,8 +202,8 @@ def test_model(model,test_loader,device):
 
 def train_SVC_model(model, input_size, criterion, optimizer, dataloaders, batch_size, device="cpu", num_epochs=1):
     """
-    Train the model using transfer learning
-    Args:
+    Train the SVC model using transfer learning
+    Inputs:
         model (torchvision.models): model to train
         input_size (int): input size of the model
         criterion (torch.nn.modules.loss): loss function
@@ -244,7 +247,7 @@ def train_SVC_model(model, input_size, criterion, optimizer, dataloaders, batch_
 
 def test_SVC_model(model, test_dataloader, device, input_size):
     """
-    Test the trained model performance on test dataset
+    Test the SVC trained model performance on test dataset
     Args:
         model (torchvision.models): model to train
         test_dataloader (torch.utils.data.DataLoader): test dataloader
