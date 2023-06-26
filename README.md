@@ -54,5 +54,10 @@ pip install -U -r yolov5/requirements.txt
 ```
 ### Modify the yolov5s.yaml file under models
 Change nc (number of class) to 7 for training WBC Roboflow dataset and save the file
-###
-Run YOLOv5.py for training
+### Run YOLOv5.py for training
+
+## Streamlit Demo
+### Create account on Roboflow
+obtain API key from [Roboflow](https://universe.roboflow.com/duke-aipi-540-summer-2023/wbc-classification-ih8we/model/1)
+### Replace api_key = [Your API key]
+
