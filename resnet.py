@@ -62,7 +62,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 cost_path = train_model(net, criterion, optimizer, dataloaders, device, num_epochs=50)
 
 # Calculate the test set accuracy and recall for each class
-acc,recall_vals = test_model(net,test_loader,device)
+acc,recall_vals = test_model(net,dataloaders['test'],device)
 print('The test set accuracy is {:.3f}'.format(acc))
 for i in range(7):
     print('For class {}, recall is {}'.format(class_names[i],recall_vals[i]))
