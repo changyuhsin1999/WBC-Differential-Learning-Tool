@@ -54,9 +54,5 @@ pip install -U -r yolov5/requirements.txt
 ```
 ### Modify the yolov5s.yaml file under models
 Change nc (number of class) to 7 for training WBC Roboflow dataset and save the file
-### Unzip the dataset file from Roboflow
-```
-curl -L "https://app.roboflow.com/ds/gP4GxvSn8q?key=vapjRAJzcV" > roboflow.zip; unzip roboflow.zip; rm roboflow.
-```
 ###
 Run YOLOv5.py for training
