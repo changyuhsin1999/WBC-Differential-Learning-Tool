@@ -59,5 +59,11 @@ Change nc (number of class) to 7 for training WBC Roboflow dataset and save the 
 ## Streamlit Demo
 ### Create account on Roboflow
 obtain API key from [Roboflow](https://universe.roboflow.com/duke-aipi-540-summer-2023/wbc-classification-ih8we/model/1)
-### Replace api_key = [Your API key]
+### Replace API_key 
+replace api_key = [Your API key] in the streamlit.py file
+### Run the application
+```
+streamlit run streamlit.py
+```
+
 
