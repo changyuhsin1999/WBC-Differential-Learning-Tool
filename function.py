@@ -175,7 +175,7 @@ def test_model(model,test_loader,device):
             inputs, labels = data[0].to(device), data[1].to(device)
             # Feed inputs through model to get raw scores
             logits = model.forward(inputs)
-            # Convert raw scores to probabilities (not necessary since we just care about discrete probs in this case)
+            # Convert raw scores to probabilities
             probs = F.softmax(logits,dim=1)
             # Get discrete predictions using argmax
             preds = np.argmax(probs.cpu().numpy(),axis=1)
