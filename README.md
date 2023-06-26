@@ -48,6 +48,10 @@ Run the resnet.py and SVC.py python script to train and evaluate your model
 ## Training YOLOv5 model
 ### Clone repo
 clone repo from the well established pre-trained framework : [utralytics](https://github.com/ultralytics/yolov5)
+### Install requirement
+```
+pip install -U -r yolov5/requirements.txt
+```
 ### Modify the yolov5s.yaml file under models
 Change nc (number of class) to 7 for training WBC Roboflow dataset and save the file
 ###
