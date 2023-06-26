@@ -68,6 +68,6 @@ filename = 'SVM_SGD.pt'
 torch.save(model, os.path.join(model_dir,filename))
 
 #Test the model
-model = torch.load("/content/WBC-Differential-Learning-Tool/models/SVM_SGD.pt")
+model = torch.load("models/SVM_SGD.pt")
 test_SVC_model(model, dataloaders["test"], device, input_size)
 
