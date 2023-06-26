@@ -10,3 +10,4 @@ streamlit
 requests
 seaborn
 torchsummary
+Pillow
